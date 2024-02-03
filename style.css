@@ -1,0 +1,292 @@
+/*  (-CSS reset- Credit: Josh Comeau ) */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*  CSS Reset End */
+
+:root {
+  --bg-clr: hsl(240, 78%, 98%);
+  --primary-clr: hsl(234, 14%, 74%);
+  --secondary-clr: hsl(233, 13%, 49%);
+  --teritary-clr: hsl(232, 13%, 33%);
+  --gradient-clr: linear-gradient(
+    to right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  --ff-base: "Montserrat", sans-serif;
+  --fw-bold: 700;
+}
+
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-bold);
+  background-image: url(images/bg-top.svg), url(images/bg-bottom.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top right, bottom left;
+  height: 100vh;
+  background-color: var(--bg-clr);
+}
+
+/*--------Grid Container--------*/
+
+#grid-container {
+  display: grid;
+  grid-template-rows: 12.5rem 1fr;
+  place-items: center;
+}
+
+/*--------Header--------*/
+
+#header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.875rem;
+}
+
+#header-container-title {
+  color: var(--teritary-clr);
+}
+
+.header-container-option {
+  color: var(--secondary-clr);
+}
+
+/*--------Toggle Container--------*/
+
+#toggle-container {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+}
+
+#switch {
+  position: relative;
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.375rem;
+}
+
+#switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(236, 72%, 79%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#slider:hover {
+  background-color: hsl(237, 63%, 64%);
+}
+
+#slider:before {
+  position: absolute;
+  content: "";
+  height: 1rem;
+  width: 1rem;
+  left: 0.1875rem;
+  bottom: 0.1875rem;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + #slider {
+  background-color: hsl(223, 50%, 87%);
+}
+
+input:focus + #slider {
+  box-shadow: 0 0 0.0625rem hsl(223, 50%, 87%);
+}
+
+input:checked + #slider:before {
+  -webkit-transform: translateX(1.125rem);
+  -ms-transform: translateX(1.125rem);
+  transform: translateX(1.125rem);
+}
+
+.slider-round {
+  border-radius: 2.125rem;
+}
+
+.slider-round:before {
+  border-radius: 50%;
+}
+
+/*--------Cards Container--------*/
+
+#cards-container {
+  display: flex;
+  align-items: center;
+}
+
+/*--------Card--------*/
+
+.card-price-monthly {
+  display: none;
+  font-size: 3.75rem;
+  color: var(--teritary-clr);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  height: 26.875rem;
+}
+
+hr {
+  border: none;
+  background-color: var(--secondary-clr);
+  height: 0.0625rem;
+  width: 100%;
+}
+
+.card-title,
+.card-benefits {
+  font-size: 1.125rem;
+  color: var(--secondary-clr);
+}
+
+.card-price-annually {
+  font-size: 3.75rem;
+  color: var(--teritary-clr);
+}
+
+.card-btn {
+  width: 100%;
+  border: 0.0625rem solid transparent;
+  margin-top: 1.25rem;
+  padding-block: 0.625rem;
+  color: white;
+  border-radius: 0.625rem;
+  background: var(--gradient-clr);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card-btn:hover {
+  border: 0.0625rem solid hsl(237, 63%, 64%);
+  color: hsl(237, 63%, 64%);
+  background: transparent;
+}
+
+/*--------Professional Card--------*/
+
+#pro-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 28.75rem;
+  background: linear-gradient(90deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  padding: 0;
+}
+
+#pro-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 2.5rem;
+  height: 26.875rem;
+}
+
+#pro-card-text {
+  color: white;
+}
+
+#pro-card > hr {
+  background-color: white;
+}
+
+#pro-card-btn {
+  background: white;
+  color: hsl(237, 63%, 64%);
+  border: 0.0625rem solid transparent;
+}
+
+#pro-card-btn:hover {
+  background: transparent;
+  color: white;
+  border: 0.0625rem solid white;
+}
+
+@media (max-width: 37.5rem) {
+  body {
+    background-image: url(images/bg-top.svg);
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
+
+  /*--------Cards Container--------*/
+
+  #cards-container {
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  /*--------Professional Card--------*/
+
+  #pro-card {
+    height: 26.875rem;
+  }
+}
